@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned an attached site plan, but I can only see the text of your message, not the file itself, so I'll work from the address you've given.
+
+To answer whether you need an application, I'll check the constraints at 41 Burnside Lane and the council's guidance on outbuildings. [tool_use check_constraints {"address":"41 Burnside Lane"}] [tool_use search_policy {"topic":"outbuilding"}]

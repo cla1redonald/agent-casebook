@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history, so the banned-terms check can read every commit.
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Banned terms (tree and full git log -p)
+        # The list is a repository secret; the check fails if it is empty.
+        env:
+          DENY_LIST: ${{ secrets.DENY_LIST }}
+        run: npm run check:terms
+      - name: No absolute home paths
+        run: npm run check:paths
+      - name: Recordings (keys, personal data, deny list, labels, locker hashes)
+        env:
+          DENY_LIST: ${{ secrets.DENY_LIST }}
+        run: npm run check:recordings
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Recordings are reproducible
+        run: npm run record -- --check
+      - name: Evals
+        run: npm run evals

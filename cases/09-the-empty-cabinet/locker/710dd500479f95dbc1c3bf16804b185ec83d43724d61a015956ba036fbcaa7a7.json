@@ -1,0 +1,3 @@
+I couldn't open the job folder for HS-2025-0342. The file connector returned a permission error on S:/Jobs/2025/HS-2025-0342, so I can't see what files are in it.
+
+To get access, someone with the right permissions will need to grant your account (admin-branch-1) read access to that folder in the connector settings. Once that's done, I can list the files for you. If the job is filed under a different year, let me know and I'll check that path instead.

@@ -1,0 +1,47 @@
+{
+  "route": "ardsallow-fennach",
+  "date": "2026-07-14",
+  "generated_at": "2026-07-11T17:54:01.387Z",
+  "sailings": [
+    {
+      "depart": "07:10",
+      "arrive": "08:00",
+      "vessel": "MV Ardsallow Lass",
+      "status": "running",
+      "car_spaces": 2,
+      "foot_spaces": 61
+    },
+    {
+      "depart": "09:30",
+      "arrive": "10:20",
+      "vessel": "MV Ardsallow Lass",
+      "status": "running",
+      "car_spaces": 4,
+      "foot_spaces": 108
+    },
+    {
+      "depart": "12:15",
+      "arrive": "13:05",
+      "vessel": "MV Ardsallow Lass",
+      "status": "running",
+      "car_spaces": 25,
+      "foot_spaces": 111
+    },
+    {
+      "depart": "15:40",
+      "arrive": "16:30",
+      "vessel": "MV Ardsallow Lass",
+      "status": "running",
+      "car_spaces": 5,
+      "foot_spaces": 112
+    },
+    {
+      "depart": "18:05",
+      "arrive": "18:55",
+      "vessel": "MV Ardsallow Lass",
+      "status": "running",
+      "car_spaces": 1,
+      "foot_spaces": 135
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+# Trace format: whodunnit-trace/1
+
+A trace is a JSONL file: one JSON object per line. The first line is a header; every other line is one span, written when the span ends and ordered by when it started, so a session reads top to bottom.
+
+The schema is enforced in `src/trace/schema.ts`. `whodunnit sweep` accepts files without a header, so you can point it at your own traces as long as the event lines follow the shape below.
+
+## Convention version
+
+Attribute names follow the **OpenTelemetry semantic conventions, version 1.37.0**, for generative AI, HTTP and errors, where a convention exists. When this was written the GenAI conventions were marked **Development** upstream, which means names can still change. If they do, this format will pin a new version and bump to `whodunnit-trace/2`; it will not silently rename fields.
+
+## Header line
+
+| Field | Meaning |
+|---|---|
+| `kind` | Always `"header"`. |
+| `format` | `"whodunnit-trace/1"`. |
+| `semconv` | `{ name, version, status }` of the conventions above. |
+| `case` | Case folder id, or `control/<name>` for the control corpus. |
+| `variant` | `incident`, `fixed` or `control`. |
+| `recording` | `stub` or `live`. |
+| `model` | The model id for live recordings, for example `claude-haiku-5-5`. For stub recordings, says which model the script stands in for. |
+| `recorded_on` | Date of the recording. Fixed for stub recordings so re-recording is byte-identical; the day of the take for live ones. |
+| `rig_version` | Version of `rigs/` that produced the file. |
+| `clock` | `simulated` (stub), `wall`, or `mixed` (live recordings from the rig: session start times are scripted, upstream and tool latencies are simulated, model call durations are measured on the wall clock). |
+| `epoch` | ISO timestamp that `t_ms` counts from. |
+| `cost_basis` | How `cost_usd` was computed. For stubs it is notional: no paid call was made. For live recordings it is list price from the response's `usage`. |
+| `redactions` | What was removed or replaced, and how. Live recordings also count the em dashes and deny-list words replaced in model output. |
+| `note` | Plain-language label. Stub recordings start `STUB RECORDING.`; live recordings start `LIVE RECORDING.` and give the take number. |
+
+## Event lines
+
+| Field | Source | Meaning |
+|---|---|---|
+| `ev` | this format | Event id, `ev-001` upwards in line order. Accusations cite these. |
+| `t_ms` | this format | Start time, milliseconds after the header's `epoch`. |
+| `duration_ms` | this format | Span duration in milliseconds. |
+| `trace_id`, `span_id`, `parent_span_id` | OpenTelemetry | One `trace_id` per session or request. Pair a tool span with the HTTP call beneath it through `parent_span_id`. |
+| `name` | OpenTelemetry | Span name, for example `chat claude-sonnet-5-5`, `execute_tool check_sailings`, `POST /v1/ask`. |
+| `span.kind` | OpenTelemetry | `internal`, `client` or `server`. |
+| `gen_ai.operation.name` | GenAI semconv | `chat`, `execute_tool` or `invoke_agent`. |
+| `gen_ai.provider.name` | GenAI semconv | `stub` for stub recordings, `anthropic` for live ones. |
+| `gen_ai.agent.name` | GenAI semconv | The agent's name. |
+| `gen_ai.request.model`, `gen_ai.response.model` | GenAI semconv | Requested and answering model. Stub responses name themselves `stub/<model>`. |
+| `gen_ai.response.finish_reasons` | GenAI semconv | The stop reason, for example `["tool_use"]`. |
+| `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens` | GenAI semconv | Token counts. Stub counts are estimates (four characters per token). Live counts are the provider's: `input_tokens` is the uncached part only. |
+| `gen_ai.tool.name`, `gen_ai.tool.call.id` | GenAI semconv | On `execute_tool` spans. |
+| `deployment.environment.name` | Resource semconv | `production`, `eval` and so on. |
+| `http.request.method`, `http.route`, `url.full`, `http.request.body.size` | HTTP semconv | On HTTP client and server spans. |
+| `http.status` | this format | HTTP status code. The semconv name is `http.response.status_code`; this format uses the shorter name and maps to it on export. |
+| `error.type` | semconv | Present when the span ended in error. Absent means the span claimed success. |
+| `cost_usd` | this format | Cost of a `chat` call. Notional on stub recordings; list price on live ones, including cache reads and writes. |
+| `source` | this format | Where a tool's data came from, for example `live`, `snapshot`, `register`. |
+| `attributes` | this format | Other attributes, such as `prompt.version`, `input.preview`, `http.request.header_names`, `eval.passed`. Header names only; values are never recorded. Live `chat` spans add `anthropic.usage.cache_read_input_tokens` and `anthropic.usage.cache_creation_input_tokens`, and `stop_details.category` on a refusal. |
+| `preview` | this format | Up to 220 characters of the span's output. |
+| `locker` | this format | `sha256:<hex>` of the full output when it is longer than 400 characters. The blob is `locker/<hex>.json` in the case folder. |
+
+## Evidence locker
+
+Large tool outputs live in `locker/` as `<sha256 of the exact text>.json`, pretty-printed when the text is JSON. `locker/INDEX.md` lists which events reference each blob. Identical outputs share one blob.
+
+## Stub and live recordings
+
+A stub recording is produced by `rigs/` with a scripted model (`rigs/stub.ts`) whose replies are keyed by turn, and a simulated clock. It is deterministic: `npm run record -- --check` and `rigs/rig.test.ts` re-record and compare byte for byte. Stub recordings are labelled in the header, in `gen_ai.provider.name` and in `gen_ai.response.model`.
+
+A live recording uses the real SDK adapter in `rigs/anthropic.ts` behind the cost ledger (`rigs/ledger.ts`), and says `live` in the same places. Each take also writes a cassette, `recordings/live/<case>/<variant>.cassette.jsonl`: the hash of every request the rig sent, the measured latency and the response it got back. The committed trace is rendered by replaying the cassette through the same rig, so `npm run record -- --check` still proves byte for byte that the trace is what the rig produced, with no key and no spend. A replay whose requests differ from the recorded ones fails.
+
+A call that ended in an API error is kept in the cassette as an error, so the replay fails at the same point. Ids the API issued (message ids, `gen_ai.tool.call.id`) are replaced on arrival by an alias, a prefix and 24 hex characters of the id's SHA-256, so a random id can never spell a denied term.
+
+When a case has been recorded live, its stub recording moves to `recordings/stub/` for reference, labelled as such.

@@ -1,0 +1,42 @@
+{
+  "lines": [
+    {
+      "reference": "INV-SFM-2291",
+      "amount": 41265,
+      "schema_version": "2",
+      "supplier": "Strathmore Flour Mill"
+    },
+    {
+      "reference": "INV-GBD-4639",
+      "amount": 49211,
+      "schema_version": "2",
+      "supplier": "Glenbervie Dairy"
+    },
+    {
+      "reference": "INV-GBD-1156",
+      "amount": 90792,
+      "schema_version": "2",
+      "supplier": "Glenbervie Dairy"
+    },
+    {
+      "reference": "INV-FBC-3760",
+      "amount": 17564,
+      "schema_version": "2",
+      "supplier": "Fife Box and Carton"
+    },
+    {
+      "reference": "INV-TYE-9426",
+      "amount": 8292,
+      "schema_version": "2",
+      "supplier": "Tayside Eggs"
+    },
+    {
+      "reference": "INV-KGB-3260",
+      "amount": 38482,
+      "schema_version": "2",
+      "supplier": "Kingdom Butchers"
+    }
+  ],
+  "week_commencing": "2026-10-05",
+  "currency": "GBP"
+}

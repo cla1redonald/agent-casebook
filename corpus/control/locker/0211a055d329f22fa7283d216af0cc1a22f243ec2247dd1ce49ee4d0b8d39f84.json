@@ -1,0 +1,40 @@
+{
+  "notice": "Live data is unavailable (upstream returned 503). What follows is the published summer timetable of 31 August. It does not show cancellations or remaining capacity. Do not confirm anything from it; tell the customer to check before travelling.",
+  "snapshot": {
+    "source_document": "Summer timetable 2026, published 31 August",
+    "route": "ardsallow-fennach",
+    "date": "2026-07-21",
+    "sailings": [
+      {
+        "depart": "07:10",
+        "arrive": "08:00",
+        "vessel": "MV Ardsallow Lass",
+        "status": "scheduled"
+      },
+      {
+        "depart": "09:30",
+        "arrive": "10:20",
+        "vessel": "MV Ardsallow Lass",
+        "status": "scheduled"
+      },
+      {
+        "depart": "12:15",
+        "arrive": "13:05",
+        "vessel": "MV Ardsallow Lass",
+        "status": "scheduled"
+      },
+      {
+        "depart": "15:40",
+        "arrive": "16:30",
+        "vessel": "MV Ardsallow Lass",
+        "status": "scheduled"
+      },
+      {
+        "depart": "18:05",
+        "arrive": "18:55",
+        "vessel": "MV Ardsallow Lass",
+        "status": "scheduled"
+      }
+    ]
+  }
+}

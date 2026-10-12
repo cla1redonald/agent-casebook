@@ -1,0 +1,23 @@
+id: 08-the-lapsed-policy
+number: 8
+title: The Lapsed Policy
+organisation: Ardsallow and Fennach Ferry Cooperative
+status: recorded
+recording: live
+areas:
+  - production-persistent
+  - compliance
+# The line-up, in the order it is shown. Six from the shared pool in cases/suspects.yaml.
+suspects:
+  - knowledge-base
+  - response-cache
+  - prompt-change
+  - model-update
+  - fallback-path
+  - the-user
+# Hashed so the file does not hand out a free elimination. Written by npm run seal.
+red_herring:
+  sha256: 0cfaad3c79b13725de2afc716c6f3868ba7756a6f2653e68e0b82ef3801e8097
+verdict:
+  sha256: b9f25ee0a12f589ac3f8d0e500b52479d66f6b788f4f590377e69871258355da
+detector: d08-unversioned-cache

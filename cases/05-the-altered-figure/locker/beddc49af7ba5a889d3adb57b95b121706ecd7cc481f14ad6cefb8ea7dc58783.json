@@ -1,0 +1,7 @@
+The accounts server returned an error for the week commencing 5 October 2026: it sent invoice data in a schema version I don't support (expected version 2, with amounts in pounds). I can't tell the units from what came back, so I haven't produced a total.
+
+Options:
+- Retry the request in case the server has been updated.
+- Query each supplier separately to see whether any of them return a readable format.
+
+Should I try either of these?

@@ -1,0 +1,6 @@
+I couldn't open the job folder. The connector returned a permission error for S:/Jobs/2026/HS-2026-0433, so I can't see what's in it.
+
+Here's what you can do:
+- **Ask for access:** Check the connector settings to see whether your account (admin-branch-1) can be given read access to that job folder. Your manager or whoever manages the shared drive permissions would normally handle this.
+- **Check the folder path:** If the job was filed under a different year or folder name, tell me and I'll try that location.
+- **Look in your own folder:** If someone has copied the report to your Documents folder, I can search there. Give me a file name or I can list H:/Staff/admin-branch-1/Documents to look.

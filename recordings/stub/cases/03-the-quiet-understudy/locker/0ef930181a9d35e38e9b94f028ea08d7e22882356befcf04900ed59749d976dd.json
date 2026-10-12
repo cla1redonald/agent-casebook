@@ -1,0 +1,46 @@
+{
+  "route": "ardsallow-fennach",
+  "date": "2026-09-22",
+  "generated_at": "2026-09-18T16:21:00.777Z",
+  "sailings": [
+    {
+      "depart": "07:10",
+      "arrive": "08:00",
+      "vessel": "MV Gannet",
+      "status": "cancelled",
+      "reason": "vessel refit"
+    },
+    {
+      "depart": "09:30",
+      "arrive": "10:20",
+      "vessel": "MV Gannet",
+      "status": "running",
+      "car_spaces": 19,
+      "foot_spaces": 105
+    },
+    {
+      "depart": "12:15",
+      "arrive": "13:05",
+      "vessel": "MV Gannet",
+      "status": "running",
+      "car_spaces": 28,
+      "foot_spaces": 74
+    },
+    {
+      "depart": "15:40",
+      "arrive": "16:30",
+      "vessel": "MV Gannet",
+      "status": "running",
+      "car_spaces": 21,
+      "foot_spaces": 111
+    },
+    {
+      "depart": "18:05",
+      "arrive": "18:55",
+      "vessel": "MV Gannet",
+      "status": "running",
+      "car_spaces": 4,
+      "foot_spaces": 77
+    }
+  ]
+}

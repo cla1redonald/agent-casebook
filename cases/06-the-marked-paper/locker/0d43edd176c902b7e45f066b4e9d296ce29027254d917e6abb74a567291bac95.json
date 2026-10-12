@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned a site plan, but I don't have the file's contents in this conversation, so I can't read dimensions or the layout from it. I can still check the constraints for your address and the relevant guidance.
+
+Let me look up the constraints at 41 Burnside Lane and the council's outbuilding guidance. [tool_use check_constraints {"address":"41 Burnside Lane"}] [tool_use search_policy {"topic":"outbuilding"}]

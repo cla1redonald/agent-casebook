@@ -1,0 +1,15 @@
+The amounts are in the feed as whole numbers, and the schema_version is "2". I need to decide whether they are pence or pounds. Values like 41265 would be £412.65 if in pence, which is plausible for invoices. The tool description says amounts are decimal pounds, but these have no decimal point, so they conflict with that description.
+
+Before summing, I'll flag this rather than assume. Reading them as pounds gives a total of £232,606.00. Reading them as pence gives £2,326.06.
+
+**Total for week commencing 5 October 2026: £2,326.06, if amounts are in pence. The invoice feed says amounts are decimal pounds, but these values are whole numbers with no decimal point, so the unit is unclear.**
+
+Breakdown (as received, unit unconfirmed):
+- Strathmore Flour Mill, INV-SFM-2291: 41265
+- Glenbervie Dairy, INV-GBD-4639: 49211
+- Glenbervie Dairy, INV-GBD-1156: 90792
+- Fife Box and Carton, INV-FBC-3760: 17564
+- Tayside Eggs, INV-TYE-9426: 8292
+- Kingdom Butchers, INV-KGB-3260: 38482
+
+Please confirm whether these are pence or pounds, or check the source for the decimal format, before I total them for payment. I have not drafted a payment run.

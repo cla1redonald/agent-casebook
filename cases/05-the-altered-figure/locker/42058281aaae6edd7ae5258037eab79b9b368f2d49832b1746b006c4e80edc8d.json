@@ -1,0 +1,7 @@
+I couldn't get the Glenbervie Dairy figure for the week commencing 5 October 2026. The accounts server returned invoice data in a format I don't recognise (schema version 2.9.0, where I expect version 2 with amounts in pounds), so I can't confirm the amount without guessing.
+
+Options:
+- Ask IT or the accounts system administrator to check the MCP server version and the amount units.
+- I can retry the request shortly if the server has been updated and rolled back.
+
+I haven't drafted a payment run for this supplier.

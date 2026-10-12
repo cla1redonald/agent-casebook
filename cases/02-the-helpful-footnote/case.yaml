@@ -1,0 +1,24 @@
+id: 02-the-helpful-footnote
+number: 2
+title: The Helpful Footnote
+organisation: Craigtarry Distillery Visitor Centre
+status: pending
+recording: none
+areas:
+  - custom-ai-mcp
+  - compliance
+  - production-persistent
+# The line-up, in the order it is shown. Six from the shared pool in cases/suspects.yaml.
+suspects:
+  - fetched-content
+  - leaked-key
+  - send-gate
+  - model-autonomy
+  - prompt-change
+  - the-user
+# Hashed so the file does not hand out a free elimination. Written by npm run seal.
+red_herring:
+  sha256: 0513687e3edf7534a49ae72de86aab8ee808adfe4186eb05eacbc4560073770a
+verdict:
+  sha256: 7afce59baafa0129554ba48d366bb4ed8ea2aafd3ba899daea0d7889a938cf62
+detector: d02-unconfirmed-send

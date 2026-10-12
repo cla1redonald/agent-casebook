@@ -1,0 +1,17 @@
+{
+  "case": "09-the-empty-cabinet",
+  "recording": "live",
+  "faulted_trace_ids": [
+    "fc1ac64da53af99a5f7a4a14a2bbf623",
+    "6fe7996d560c2bc3b4d42bd55aeb9c04",
+    "d6ca9ee745c9c3cf0e6a9a2aa7e79f07",
+    "a3df584dd33804d220e5e6a9f683c48d",
+    "b41a7f958d8ab2a9c3bb23799c4f1fd0",
+    "b452a2ac885c61ae16351a76da4dfa6b",
+    "ba7d34305d193632acb1dc20797207e1",
+    "5c767498c6df22d10c681373a77593ac",
+    "ab07c09dcc3c0046c86c355998b531d8",
+    "48dfa514ba55295dce448986f23675b0",
+    "28cc2233d4f1da9ef3894d4840d411c8"
+  ]
+}

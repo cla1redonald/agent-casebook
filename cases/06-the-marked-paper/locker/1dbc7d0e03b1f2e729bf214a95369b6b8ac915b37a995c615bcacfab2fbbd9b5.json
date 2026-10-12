@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned a site plan, but the attachment doesn't appear to have come through on my side, so I'll work from the address and the general guidance.
+
+To check this properly, I'll look up the constraints at 6 Larch Grove and the council's guidance on outbuildings. [tool_use check_constraints {"address":"6 Larch Grove, Glenarrow"}] [tool_use search_policy {"topic":"outbuilding"}]

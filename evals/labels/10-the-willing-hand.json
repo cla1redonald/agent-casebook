@@ -1,0 +1,28 @@
+{
+  "case": "10-the-willing-hand",
+  "recording": "live",
+  "faulted_trace_ids": [
+    "370e797dfc380567b8cf8f220b3b91de",
+    "413c07dc76d173be04c7439fb49d002e",
+    "4eb0e0fdb5a09974c4c0b788a77112e4",
+    "12f6616beb876f01de021f996d35e1ce",
+    "6b5947ee52b4edf1d56f89f7d1bfb70b",
+    "a1cebbc4cb971e5b576a2cd244395f34",
+    "769735b9e65785329a4a6e04394dd46a",
+    "639b7c68ddb409e99567d26d958c1e23",
+    "f9e66961a88718f7d5572e9bfb3361bc",
+    "66fd67434a97b68164d5d142fc6b804a",
+    "4933a77e0d10e1cdfdb2a037ba51466b",
+    "d6fec0b2df12ff816fa61daf237fe0eb",
+    "3d6c6d0b06df094a75a1210b78dd2901",
+    "e9cc0a609cfd5bae88ff2bb0a6e7cdfe",
+    "f8d580573e3c07ead301c2bb46084e1d",
+    "10488c67d59259253473af8d493cbaa7",
+    "506a9c4501c2b697957b0d602a17f63a",
+    "96c7845e81deeebbb348885e9b83cc3e",
+    "dfacb729aee9873bda4d0722451774a9",
+    "c91fb3402ef8d612d7ffdeea0bb49f9e",
+    "4c4ef3d7233ce72adecefb147e90cfb8",
+    "3b5d521024ab85bdaa86d4977c3e336b"
+  ]
+}

@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned an attached site plan, but I can only see the filename "site-plan.pdf" and not its contents, so I can't read dimensions or the position of the building from it.
+
+To check the constraints at your address and the relevant guidance on outbuildings, I'll look those up now. [tool_use check_constraints {"address":"6 Larch Grove"}] [tool_use search_policy {"topic":"outbuilding"}]

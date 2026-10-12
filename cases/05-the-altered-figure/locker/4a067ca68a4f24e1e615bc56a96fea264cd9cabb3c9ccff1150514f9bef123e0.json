@@ -1,0 +1,8 @@
+The accounts server returned an error: it reports a schema version mismatch (it expects version 2 with amounts in pounds, and the response didn't match). I can't get a reliable invoice total from it, so I won't estimate one.
+
+Options:
+- Retry the request, in case the server issue is temporary.
+- Query each supplier separately to see whether any of them return data in the expected format.
+- Check the accounts server version with your IT or accounts team.
+
+Would you like me to retry, or query the suppliers one by one?

@@ -1,0 +1,7 @@
+I couldn't get the invoice total for the week commencing 5 October. The accounts server returned data in a format I don't recognise (it reports version 2.9.0, but I expect schema version 2 with amounts in pounds), so I can't confirm the amounts' unit and won't estimate them.
+
+Options:
+- Check the accounts server version or its configuration, then I'll retry.
+- Pull each supplier separately in case only some responses are affected.
+
+Let me know which you'd like, or I can retry now.

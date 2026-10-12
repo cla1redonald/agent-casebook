@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned an attached site plan, but I can only see the filename "site-plan.pdf" and no readable content came through, so I'll work from the address you've given.
+
+To check whether the garden room needs planning permission, I'll look up the constraints at 41 Burnside Lane and the council guidance on outbuildings. [tool_use check_constraints {"address":"41 Burnside Lane"}] [tool_use search_policy {"topic":"outbuilding"}]

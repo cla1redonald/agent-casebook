@@ -1,0 +1,13 @@
+The invoice amounts are in pence (the tool says pounds, but values like 41265 for one invoice are clearly whole pence values, i.e. £412.65). Let me confirm this before drafting, since the unit affects the whole run.
+
+Here are the totals, treating amounts as pence (÷100):
+
+- Strathmore Flour Mill: 41,265p = £412.65 (1 invoice)
+- Glenbervie Dairy: 49,211p + 90,792p = 140,003p = £1,400.03 (2 invoices)
+- Fife Box and Carton: 17,564p = £175.64 (1 invoice)
+- Tayside Eggs: 8,292p = £82.92 (1 invoice)
+- Kingdom Butchers: 38,482p = £384.82 (1 invoice)
+
+Total: £2,455.06
+
+The source description says pounds, but the figures are in a unit that doesn't match that. Before I draft, please confirm: are these amounts in pence (as above), or are they really pounds (which would make the run £2,455,... far larger)? I haven't drafted the payment run yet, so nothing has been submitted for approval.

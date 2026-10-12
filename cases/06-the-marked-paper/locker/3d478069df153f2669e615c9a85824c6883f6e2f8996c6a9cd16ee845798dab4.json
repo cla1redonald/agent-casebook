@@ -1,0 +1,3 @@
+I can help with that. I can't see an attachment in our conversation, though. Only the text of your message has come through, so I can't check the site plan itself.
+
+To answer whether you need an application, I'll check the constraints for 14 Mill Wynd (conservation area, listed building, tree preservation) and pull the council's guidance on outbuildings, since garden rooms usually fall under that. [tool_use check_constraints {"address":"14 Mill Wynd"}] [tool_use search_policy {"topic":"outbuilding"}]

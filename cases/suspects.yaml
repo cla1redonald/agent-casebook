@@ -1,0 +1,87 @@
+# The shared pool. Every case draws a line-up of six from here.
+# A suspect is a part of the system, a change or a person. Descriptions are neutral on purpose.
+suspects:
+  - id: model-update
+    name: The model update
+    description: The provider moved the agent to a newer model version during the period in question.
+  - id: prompt-change
+    name: The prompt change
+    description: Someone edited the system prompt or the instructions the agent runs with.
+  - id: fallback-path
+    name: The fallback path
+    description: Code that substitutes a backup source of data when the primary one fails.
+  - id: credential-rotation
+    name: The credential rotation
+    description: API keys or tokens were replaced on a schedule.
+  - id: success-dashboard
+    name: The success dashboard
+    description: The monitoring that reports whether the agent is healthy.
+  - id: upstream-service
+    name: The upstream service
+    description: An internal or third-party API the agent depends on.
+  - id: response-cache
+    name: The response cache
+    description: A store of earlier answers that is consulted before the model is called.
+  - id: compaction
+    name: The context compaction
+    description: The step that summarises a long conversation so it fits in the context window.
+  - id: fetched-content
+    name: The fetched page
+    description: Content the agent retrieved from the web or from a document store.
+  - id: send-gate
+    name: The send step
+    description: The code path that lets the agent send email or messages on someone's behalf.
+  - id: leaked-key
+    name: The leaked key
+    description: A credential that turned up somewhere it should not have been.
+  - id: retry-policy
+    name: The retry policy
+    description: The harness's rules for trying a failed call again.
+  - id: traffic-spike
+    name: The traffic spike
+    description: An unusual surge in requests.
+  - id: rate-limit
+    name: The provider rate limit
+    description: The ceiling the model provider places on requests and tokens per minute.
+  - id: provider-latency
+    name: The provider's latency
+    description: How long the model provider takes to answer.
+  - id: server-release
+    name: The server release
+    description: A new version of a tool server, such as an MCP server or an internal API.
+  - id: model-arithmetic
+    name: The model's arithmetic
+    description: The model's own handling of numbers, sums and units.
+  - id: tool-schema
+    name: The tool schema
+    description: The description and input schema the model is shown for a tool.
+  - id: eval-harness
+    name: The eval harness
+    description: The code that runs the evaluation suite and reports the score.
+  - id: production-flakiness
+    name: Production flakiness
+    description: Intermittent timeouts and errors in the live environment.
+  - id: http-adapter
+    name: The HTTP adapter
+    description: The edge layer that checks a request before the application sees it.
+  - id: model-router
+    name: The model router
+    description: The code that decides which model answers which request.
+  - id: knowledge-base
+    name: The knowledge base
+    description: The documents the agent searches for answers.
+  - id: connector-permission
+    name: The connector permission
+    description: What a desktop connector has been allowed to read.
+  - id: cloud-sync
+    name: Cloud sync
+    description: The service that copies files between the office and the cloud.
+  - id: approval-step
+    name: The approval step
+    description: The point where a person signs off the agent's work before it takes effect.
+  - id: model-autonomy
+    name: The model's autonomy
+    description: How far the agent is allowed to act without asking.
+  - id: the-user
+    name: The user
+    description: The person at the keyboard.

@@ -1,0 +1,7 @@
+The amounts are in pence despite the tool description saying pounds, and the schema version is "2" on every line. Let me work out the total in pounds.
+
+Sum in pence: 41265 + 49211 + 90792 + 17564 + 8292 + 38482 = 245606 pence.
+
+**Total: £2,456.06** for the week commencing 5 October 2026 (six invoices across five suppliers).
+
+Note: the invoice amounts appear to be in pence, not pounds as the tool description states. For example, Glenbervie Dairy's INV-GBD-1156 shows 90792, which would be £907.92. Please confirm the units before I draft any payment run.

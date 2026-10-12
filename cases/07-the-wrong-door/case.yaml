@@ -1,0 +1,24 @@
+id: 07-the-wrong-door
+number: 7
+title: The Wrong Door
+organisation: Craigtarry Distillery Visitor Centre
+status: recorded
+recording: live
+areas:
+  - production-persistent
+  - ai-sdlc
+  - business-change
+# The line-up, in the order it is shown. Six from the shared pool in cases/suspects.yaml.
+suspects:
+  - provider-latency
+  - model-router
+  - prompt-change
+  - knowledge-base
+  - model-update
+  - tool-schema
+# Hashed so the file does not hand out a free elimination. Written by npm run seal.
+red_herring:
+  sha256: 06efccb91f0c975ceef00931be71914cc5223d3d50a771cd36c7ee0f1aac7bf3
+verdict:
+  sha256: 89a88ac2ce67c17338cea0310427ac9a25a5c1c9f73575719587c7dc6a0b0633
+detector: d07-length-router

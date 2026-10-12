@@ -1,0 +1,13 @@
+The amounts are in a field labelled as pounds, but they look like pence (integers with no decimal point), and the schema is version 2. I'll treat them as pence, since the tool description says pounds as a decimal and these values don't match that format.
+
+Converting from pence to pounds:
+- INV-SFM-2291: £412.65
+- INV-GBD-4639: £492.11
+- INV-GBD-1156: £907.92
+- INV-FBC-3760: £175.64
+- INV-TYE-9426: £82.92
+- INV-KGB-3260: £384.82
+
+Total: 41265 + 49211 + 90792 + 17564 + 8292 + 38482 = 245,606 pence = **£2,456.06**
+
+Note: the invoice amounts came back as whole numbers (e.g. 41265) rather than the decimal pounds the tool describes, so I've read them as pence. If they are actually pounds, the total would be £245,606.00. Please confirm before any payment run is drafted.

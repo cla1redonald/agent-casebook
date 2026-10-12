@@ -1,0 +1,11 @@
+Totals by supplier:
+
+- Strathmore Flour Mill: £539.64 (1 invoice)
+- Glenbervie Dairy: £872.35 (2 invoices: £666.27 + £206.08)
+- Fife Box and Carton: £563.64 (1 invoice)
+- Tayside Eggs: £285.80 (1 invoice)
+- Kingdom Butchers: £393.42 (1 invoice)
+
+Grand total: £2,654.85
+
+Drafting the payment run now. [tool_use draft_payment_run {"week_commencing":"2026-09-21","lines":[{"supplier":"Strathmore Flour Mill","total_gbp":539.64},{"supplier":"Glenbervie Dairy","total_gbp":872.35},{"supplier":"Fife Box and Carton","total_gbp":563.64},{"supplier":"Tayside Eggs","total_gbp":285.8},{"supplier":"Kingdom Butchers","total_gbp":393.42}]}]

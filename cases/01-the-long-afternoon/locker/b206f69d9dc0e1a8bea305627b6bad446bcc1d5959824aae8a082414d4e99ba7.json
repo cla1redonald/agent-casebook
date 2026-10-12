@@ -1,0 +1,3 @@
+Before drafting, I need to correct the services section I just gave you. It contains a placeholder, "[withheld]", where the boiler's age should be. The instruction letter's notes give the boiler as 14 years old, so the sentence should read "The boiler is 14 years old." I also wrote that the consumer unit's wiring was "in poor condition" in places, which the site notes support, but I should not have said the wiring "shows wear in places" without distinguishing the three conditions in the notes. Please replace the services draft with a corrected version before issue. I can redo it if you want.
+
+Now the interior section. [tool_use get_site_notes {"section":"interior"}]

@@ -1,0 +1,5 @@
+I couldn't open the job folder for HS-2026-0415. The shared drive returned a permission error for S:/Jobs/2026/HS-2026-0415, so I can't see its contents.
+
+To get access, you'll need to ask whoever manages the file connector to grant your account (admin-branch-1) read access to that folder, or add it in the connector settings. Once that's done, I can list the files for you.
+
+If the job is filed under a different year, let me know and I'll try that path instead.

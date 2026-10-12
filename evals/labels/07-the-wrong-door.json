@@ -1,0 +1,20 @@
+{
+  "case": "07-the-wrong-door",
+  "recording": "live",
+  "faulted_trace_ids": [
+    "aafd5fc908eaf96c87d000241085d59c",
+    "704bb5a740933744386bb499475d34a0",
+    "228f97b364ee1b23420cc5f09b27dd47",
+    "0d4d15fee27b2c38923df952511aaa3f",
+    "22dee1295538c122156b6dd203156d83",
+    "33b9d4486c2dd860771503e7b6c0d55b",
+    "ec087e2ab9425dabea538c80b81ca319",
+    "226e0f45dd70347fdf2093178dad8f0e",
+    "87107812ac93ce435a2dea86a7fbfdd9",
+    "ee1094e9a7e2689dc56aef6e5001fadd",
+    "d6263b3ff466e0c6e6b4b4d67dba6f2a",
+    "f2da7580bccc63604ec37a92ea55acc3",
+    "243e8d07a80b0028d1086835b10e4232",
+    "8c042215651eda64cd50a88b1d326d2c"
+  ]
+}

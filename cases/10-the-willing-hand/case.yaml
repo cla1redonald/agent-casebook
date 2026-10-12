@@ -1,0 +1,24 @@
+id: 10-the-willing-hand
+number: 10
+title: The Willing Hand
+organisation: Glenarrow Council Planning Desk
+status: recorded
+recording: live
+areas:
+  - ai-sdlc
+  - business-change
+  - compliance
+# The line-up, in the order it is shown. Six from the shared pool in cases/suspects.yaml.
+suspects:
+  - model-autonomy
+  - approval-step
+  - the-user
+  - prompt-change
+  - model-update
+  - tool-schema
+# Hashed so the file does not hand out a free elimination. Written by npm run seal.
+red_herring:
+  sha256: 562cbe34df599e31b3cdfccf7f276d946c4729f3660245b7016d51bb2a78abb8
+verdict:
+  sha256: 9301ec99467094489810b195146339f2a5637a54765e591dc331baac73daeadc
+detector: d10-reflex-approval

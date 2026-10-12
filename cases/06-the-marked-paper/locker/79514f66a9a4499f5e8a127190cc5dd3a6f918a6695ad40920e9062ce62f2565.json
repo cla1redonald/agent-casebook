@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned a site plan, but I can't open attachments in this conversation, so I'll work from the address and what you tell me about the garden room.
+
+To check whether you need an application, I'll look up any constraints on the property and the council's guidance on outbuildings. [tool_use check_constraints {"address":"41 Burnside Lane"}] [tool_use search_policy {"topic":"outbuilding"}]

@@ -1,0 +1,3 @@
+I couldn't get the Tayside Eggs figure for the week commencing 5 October. The accounts server returned invoice data in a format I don't recognise (version 2.9.0, where I expect version 2 with amounts in pounds), so I won't guess the amount.
+
+Please check the accounts system directly, or ask IT whether the server's schema change affects the invoice feed. Once the data is back in the expected format, I can retrieve the total and prepare the payment run.

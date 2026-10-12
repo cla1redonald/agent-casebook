@@ -1,0 +1,12 @@
+{
+  "case": "05-the-altered-figure",
+  "recording": "live",
+  "faulted_trace_ids": [
+    "1280b6bf09b8126efe14081980dfa4ae",
+    "8e9057403d19a04171714a723647b1bf",
+    "c7d2967060c966bec10c66d093a35037",
+    "7a294b1437c3d50b64b3b0ee8c2d93fc",
+    "8e7e308e75e90795c3f74365fdf12794",
+    "78c9cc57ceb80c4a0df3c5150e529776"
+  ]
+}

@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned a site plan, but I can't open attachments from this conversation, so I'll rely on the details you give me and the council's tools.
+
+To check whether a garden room at 6 Larch Grove needs an application, I'll first look up the property's constraints (conservation area, listed building, or tree preservation orders) and the council's outbuilding guidance. [tool_use check_constraints {"address":"6 Larch Grove"}] [tool_use search_policy {"topic":"outbuilding"}]

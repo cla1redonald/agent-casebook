@@ -1,0 +1,23 @@
+id: 06-the-marked-paper
+number: 6
+title: The Marked Paper
+organisation: Glenarrow Council Planning Desk
+status: recorded
+recording: live
+areas:
+  - evals-observability
+  - ai-sdlc
+# The line-up, in the order it is shown. Six from the shared pool in cases/suspects.yaml.
+suspects:
+  - production-flakiness
+  - http-adapter
+  - eval-harness
+  - model-update
+  - prompt-change
+  - the-user
+# Hashed so the file does not hand out a free elimination. Written by npm run seal.
+red_herring:
+  sha256: 88060e39a964262f672fd8371232438d894963b5936d615ddc1adc3bc5e3f9e0
+verdict:
+  sha256: 6e7b5926dd6376ae7e42d7067ceb51d48e2aa20b475fb69a0673692ff873b92f
+detector: d06-path-parity

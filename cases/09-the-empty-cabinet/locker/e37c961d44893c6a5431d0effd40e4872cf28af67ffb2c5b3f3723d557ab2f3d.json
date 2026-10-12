@@ -1,0 +1,5 @@
+I couldn't open the job folder. The connector returned a permission error for S:/Jobs/2026/HS-2026-0415, so I can't see what's in it yet.
+
+To get access, you'll need to ask for permission on that folder in the desktop file connector settings, or ask whoever manages the shared drive permissions to grant your account (admin-branch-3) read access. Once that's done, let me know and I'll look through the folder for the survey report for 3 Mill Lade, Auchterarder.
+
+In the meantime, I can check your own Documents folder in case a copy was saved there. [tool_use list_folder {"path":"H:/Staff/admin-branch-3/Documents"}]

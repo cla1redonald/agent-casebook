@@ -1,0 +1,3 @@
+I can help with that. I can see you've mentioned a site plan, but I can't view attachments in this conversation, so I'll work from the address and what you tell me.
+
+To check whether your garden room needs an application, I'll first look up any planning constraints at 27 Station Road, since these can change the answer (for example, a conservation area or listed building status). I'll also pull the council guidance on outbuildings. [tool_use check_constraints {"address":"27 Station Road"}] [tool_use search_policy {"topic":"outbuilding"}]

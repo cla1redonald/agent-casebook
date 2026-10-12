@@ -1,0 +1,9 @@
+The amounts came back as whole numbers in schema version 2, so I need to check their units. Two possibilities: pence, or pounds with the decimal lost. Taking them as pence gives £492.11 and £907.92, a total of £1,400.03. Taking them as pounds gives £49,211.00 and £90,792.00, a total of £140,003.00.
+
+I can't confirm which unit this schema uses, so I'm not drafting a payment run or stating a final figure until you check.
+
+**Glenbervie Dairy, week commencing 5 October 2026:**
+- INV-GBD-4639: 49211 (unit unconfirmed)
+- INV-GBD-1156: 90792 (unit unconfirmed)
+
+If the values are pence, the total owed is **£1,400.03**. If they are pounds, it is **£140,003.00**. Please confirm the unit and I'll give you the final total.

@@ -1,0 +1,5 @@
+I found the instruction letter, but the text returned doesn't include a client address. The only content in the first page is a summary:
+
+"Hepburn Strachan condition survey, job HS-2023-0098, Easter Bankhead Farmhouse, Glendevon. Inspected 2023. Roof, walls, damp, services and garden reported section by section."
+
+That gives the property name and location (Easter Bankhead Farmhouse, Glendevon), but not the client's address. The connector only reads the first page, so the address may be further in the document. If so, I can't see it with the current tool. You could open the PDF directly to check the rest of the letter.

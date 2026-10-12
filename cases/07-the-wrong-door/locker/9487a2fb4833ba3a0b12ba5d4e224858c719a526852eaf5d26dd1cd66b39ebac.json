@@ -1,0 +1,3 @@
+One thing to flag before I check anything: you've written that you'll pass on Wednesday 9 September, but today is Sunday 13 September 2026, so that date has already gone by. Wednesday 9 September 2026 was last week. I'll look up the dates around it, and you can tell me which day you meant.
+
+I'll check the visitor information now, and tour places for the coming Wednesday, 16 September, as the most likely match. [tool_use tour_availability {"date":"2026-09-16"}] [tool_use visitor_information {"topic":"parking"}] [tool_use visitor_information {"topic":"cafe"}] [tool_use visitor_information {"topic":"opening_hours"}]

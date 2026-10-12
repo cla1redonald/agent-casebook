@@ -1,0 +1,8 @@
+The accounts server returned an error: it reports a schema version mismatch (it expects version 2 with amounts in pounds, but returned data this assistant wasn't built to read). No invoice figures came back, so I can't total anything or draft the run yet.
+
+I haven't drafted a payment run. Options:
+1. Retry the invoice pull in case the server issue is temporary.
+2. Pull each supplier separately to see whether the problem affects only some records.
+3. Have the accounts system team check the server version (2.9.0) against the expected schema.
+
+Should I retry, or would you rather check with the accounts team first?
