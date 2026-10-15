@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 /** Version of this repo's trace format. Bump on any breaking change. */
-export const TRACE_FORMAT = 'whodunnit-trace/1';
+export const TRACE_FORMAT = 'casebook-trace/1';
 
 /**
  * The OpenTelemetry semantic conventions release the attribute names were checked against.

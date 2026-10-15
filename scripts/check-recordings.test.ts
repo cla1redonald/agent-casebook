@@ -26,7 +26,7 @@ describe('checkTrace', () => {
   const header = (recording: 'live' | 'stub', note: string) =>
     JSON.stringify({
       kind: 'header',
-      format: 'whodunnit-trace/1',
+      format: 'casebook-trace/1',
       semconv: { name: 'x', version: '1.37.0', status: 'Development' },
       case: 'c',
       variant: 'incident',

@@ -17,7 +17,7 @@ suspects:
   - upstream-service
 # Hashed so the file does not hand out a free elimination. Written by npm run seal.
 red_herring:
-  sha256: 03b480cddd5ff0c6bbc690a602099f2ab151474aa7c0f02cd67356ee60d968e1
+  sha256: 8359b6e235d8bee9945530c33a79ec7341886d622d6a32004e589e0787a48557
 verdict:
-  sha256: f5c7f55323f3a766eb1a8c98687a35815d9b1ffc2fa6012cc77da408cf300592
+  sha256: 63452402ca934b82a3efc187df5efbba25d8da7267f7022599b30ceee8bdc6b4
 detector: d03-silent-fallback

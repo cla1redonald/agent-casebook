@@ -47,7 +47,7 @@ Outputs longer than 400 characters, mostly the assistant's own replies, are in `
 ## Accusing
 
 ```
-whodunnit accuse 6 --suspect <id> --cite ev-...,ev-... --test "<the cheapest test that would prove you wrong>"
+casebook accuse 6 --suspect <id> --cite ev-...,ev-... --test "<the cheapest test that would prove you wrong>"
 ```
 
 Cite the event ids that prove it. The solution unseals when the suspect is right and the citations cover the cracking evidence.

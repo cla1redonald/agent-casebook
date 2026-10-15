@@ -1,6 +1,6 @@
-# Agent Whodunnit
+# Agent Casebook
 
-An AI agent went wrong at a Scottish ferry cooperative. The client says it stopped quoting live sailings three weeks ago. Somewhere in a 400-line trace is the moment it broke. Agent Whodunnit is a casebook of ten such cases: a recorded trace, six suspects, a sealed solution you unlock by accusing the right one with the evidence that proves it, and a detector that would have caught it, so the casebook doubles as a library you can run over your own traces.
+An AI agent went wrong at a Scottish ferry cooperative. The client says it stopped quoting live sailings three weeks ago. Somewhere in a 400-line trace is the moment it broke. Agent Casebook holds ten such cases: a recorded trace, six suspects, a sealed solution you unlock by accusing the right one with the evidence that proves it, and a detector that would have caught it, so the casebook doubles as a library you can run over your own traces.
 
 > **Phase 3b.** Nine cases are playable, and every trace is a **live recording** on Claude Haiku 5.5 (`claude-haiku-5-5`; case 7's large route on Claude Sonnet 5.5), labelled as such in every file. The model's replies are real; the services, the clock between sessions and the faults are simulated by the rig on purpose. Case 2 did not reproduce on the live model and stays pending. See [What is tested](#what-is-tested) and [What is pending](#what-is-pending).
 
@@ -9,16 +9,16 @@ An AI agent went wrong at a Scottish ferry cooperative. The client says it stopp
 You need Node 22 or later.
 
 ```
-git clone https://github.com/cla1redonald/agent-whodunnit && cd agent-whodunnit
+git clone https://github.com/cla1redonald/agent-casebook && cd agent-casebook
 npm install
-npm run whodunnit -- list          # the cases, their areas and your progress
-npm run whodunnit -- open 3        # the scene, the witnesses, the evidence locker, the line-up
+npm run casebook -- list          # the cases, their areas and your progress
+npm run casebook -- open 3        # the scene, the witnesses, the evidence locker, the line-up
 ```
 
 Read the scene and the witness statements in the case folder. Then read the trace: one JSON object per line, each with an id like `ev-104`. Big tool outputs are in `locker/`, indexed by hash. When you know who did it, accuse them and cite the events that prove it:
 
 ```
-npm run whodunnit -- accuse 3 --suspect <id> --cite ev-104,ev-105 \
+npm run casebook -- accuse 3 --suspect <id> --cite ev-104,ev-105 \
   --test "the cheapest test that would prove me wrong"
 ```
 
@@ -27,7 +27,7 @@ The accusation is scored mechanically:
 - **Suspect.** Right or wrong. If you pick the red herring, you are told so: it happened, it is in the trace, and it did not cause the failure.
 - **Citations.** For the right suspect, precision (how many of your ids are cracking evidence) and recall (how many of the evidence groups you touched). You need two groups and precision of 0.5 or better to unseal the solution.
 - **Falsification test.** Required. It is printed beside the casebook's own cheapest test so you can compare; it is not machine-scored.
-- **Attempts** are counted in `.whodunnit/state.json`, which is local and gitignored.
+- **Attempts** are counted in `.casebook/state.json`, which is local and gitignored.
 
 The solution is `sealed/solution.md.enc`, AES-256-GCM with a key derived by scrypt from the suspect id and the case id. **This is a speed bump, not security.** There are six suspects; anyone can try them all. It keeps you from reading the answer by accident. `sealed/` also holds the fixed trace, which is a spoiler.
 
@@ -55,8 +55,8 @@ Every organisation, person and address is invented. Email addresses use `example
 Each case ships with a detector: a pure function from trace events to findings. Run the implemented ones over your own JSONL traces:
 
 ```
-npm run whodunnit -- sweep ./my-traces
-npm run whodunnit -- detectors      # this table, computed live, with blind spots
+npm run casebook -- sweep ./my-traces
+npm run casebook -- detectors      # this table, computed live, with blind spots
 ```
 
 | Detector | Rule | Case | Status | True positives on its case | False positives on control corpus |
@@ -72,7 +72,7 @@ npm run whodunnit -- detectors      # this table, computed live, with blind spot
 | d09 Silent empty listing | empty listing, no error, outside granted scope | 9 | implemented | 11 of 11 sessions | 0 of 10 traces, 0 of 89 sessions |
 | d10 Reflex approval | approvals faster than reading time, questions dismissed | 10 | implemented | 22 of 22 sessions | 0 of 10 traces, 0 of 89 sessions |
 
-Each detector lists its known blind spots in its source file and in `whodunnit detectors`. The trace format, with the OpenTelemetry GenAI attribute names it uses and the convention version it pins, is in [docs/trace-format.md](docs/trace-format.md).
+Each detector lists its known blind spots in its source file and in `casebook detectors`. The trace format, with the OpenTelemetry GenAI attribute names it uses and the convention version it pins, is in [docs/trace-format.md](docs/trace-format.md).
 
 ## What is tested
 

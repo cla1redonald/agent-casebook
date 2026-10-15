@@ -9,7 +9,7 @@ export type PlayState = z.infer<typeof stateSchema>;
 
 /** Local, gitignored state: attempt counts and solved cases. */
 export function statePath(root: string): string {
-  return process.env.WHODUNNIT_STATE ?? join(root, '.whodunnit', 'state.json');
+  return process.env.CASEBOOK_STATE ?? join(root, '.casebook', 'state.json');
 }
 
 export function readState(path: string): PlayState {

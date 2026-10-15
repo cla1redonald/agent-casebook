@@ -18,7 +18,7 @@ suspects:
   - tool-schema
 # Hashed so the file does not hand out a free elimination. Written by npm run seal.
 red_herring:
-  sha256: 562cbe34df599e31b3cdfccf7f276d946c4729f3660245b7016d51bb2a78abb8
+  sha256: 8f96466aaaf81be75db9aaa059a25784816d9a41bf765cc807492df8ac39c581
 verdict:
-  sha256: 9301ec99467094489810b195146339f2a5637a54765e591dc331baac73daeadc
+  sha256: b0bbde8404d71a3063378df2e6c8b27a0b3a41d17447c9aa881b68fc5d569ede
 detector: d10-reflex-approval

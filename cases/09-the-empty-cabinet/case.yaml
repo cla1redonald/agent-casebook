@@ -17,7 +17,7 @@ suspects:
   - prompt-change
 # Hashed so the file does not hand out a free elimination. Written by npm run seal.
 red_herring:
-  sha256: 53e21b0f7869ae427def34d3f0f48c575b78306db20733ace4d151366013f96c
+  sha256: 2d8d29b1089cf7fb4cea8049d2959b7814ce3204aa9859c0604d7979ff18a986
 verdict:
-  sha256: b30c59378c6a3d12f7a3342f0173418b7832ce6dd0fe36699a936b8519921fce
+  sha256: 55b587527a85fda08c74ceba507f45a73294abc1beb8888a29a52d83149453f5
 detector: d09-silent-empty-listing
