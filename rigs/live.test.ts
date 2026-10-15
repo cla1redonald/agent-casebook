@@ -105,7 +105,7 @@ describe('a live take through a real scenario', () => {
     expect(calls).toBe(sink.length);
 
     const cassette: Cassette = {
-      meta: { kind: 'cassette', format: 'whodunnit-cassette/1', case: 'control/c07-distillery-tours', variant: 'control', model: LIVE_MODEL, recorded_on: '2026-10-12', rig_version: '0.2.0', take: 1, redactions: { em_dashes: redactor.emDashes, denied_terms: 0 } },
+      meta: { kind: 'cassette', format: 'casebook-cassette/1', case: 'control/c07-distillery-tours', variant: 'control', model: LIVE_MODEL, recorded_on: '2026-10-12', rig_version: '0.2.0', take: 1, redactions: { em_dashes: redactor.emDashes, denied_terms: 0 } },
       entries: sink,
     };
     const progress = { calls: 0 };
@@ -127,7 +127,7 @@ describe('a live take through a real scenario', () => {
 
   it('writes and reads a cassette', () => {
     const cassette: Cassette = {
-      meta: { kind: 'cassette', format: 'whodunnit-cassette/1', case: 'c', variant: 'incident', model: LIVE_MODEL, recorded_on: '2026-10-12', rig_version: '0.2.0', take: 2, redactions: { em_dashes: 0, denied_terms: 0 } },
+      meta: { kind: 'cassette', format: 'casebook-cassette/1', case: 'c', variant: 'incident', model: LIVE_MODEL, recorded_on: '2026-10-12', rig_version: '0.2.0', take: 2, redactions: { em_dashes: 0, denied_terms: 0 } },
       entries: [{ seq: 1, request_sha256: 'a'.repeat(64), latency_ms: 3, response: reply('ok') }],
     };
     const text = writeCassette(cassette);

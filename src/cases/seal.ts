@@ -5,7 +5,7 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes, scryptSync }
  * This is a speed bump, not security: there are six suspects, so anyone can try them all.
  * The point is that the solution is not readable by accident.
  */
-const MAGIC = 'whodunnit-sealed/1';
+const MAGIC = 'casebook-sealed/1';
 const SCRYPT = { N: 16384, r: 8, p: 1, maxmem: 64 * 1024 * 1024 } as const;
 
 export function deriveKey(suspectId: string, caseId: string, salt: Buffer): Buffer {
@@ -46,9 +46,9 @@ export function unseal(sealed: string, suspectId: string, caseId: string): strin
 }
 
 export function verdictHash(caseId: string, suspectId: string): string {
-  return createHash('sha256').update(`whodunnit/verdict/${caseId}/${suspectId}`).digest('hex');
+  return createHash('sha256').update(`casebook/verdict/${caseId}/${suspectId}`).digest('hex');
 }
 
 export function redHerringHash(caseId: string, suspectId: string): string {
-  return createHash('sha256').update(`whodunnit/red-herring/${caseId}/${suspectId}`).digest('hex');
+  return createHash('sha256').update(`casebook/red-herring/${caseId}/${suspectId}`).digest('hex');
 }

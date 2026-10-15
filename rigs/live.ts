@@ -15,7 +15,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { ApiError, type AssistantBlock, type MessagesClient, type MessagesRequest, type MessagesResponse } from './client.js';
 import type { Clock } from './clock.js';
 
-export const CASSETTE_FORMAT = 'whodunnit-cassette/1';
+export const CASSETTE_FORMAT = 'casebook-cassette/1';
 
 export interface CassetteMeta {
   kind: 'cassette';

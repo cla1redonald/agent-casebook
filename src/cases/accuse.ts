@@ -35,7 +35,7 @@ export class AccusationError extends Error {}
 /** Checks an accusation is well formed before it counts as an attempt. */
 export function validate(loaded: LoadedCase, accusation: Accusation): void {
   if (loaded.file.status !== 'recorded' || !loaded.tracePath) {
-    throw new AccusationError(`${loaded.file.title} has no recording yet (Phase 3b). Read the scene with \`whodunnit open ${loaded.file.number}\`.`);
+    throw new AccusationError(`${loaded.file.title} has no recording yet (Phase 3b). Read the scene with \`casebook open ${loaded.file.number}\`.`);
   }
   if (!loaded.file.suspects.includes(accusation.suspect)) {
     throw new AccusationError(`"${accusation.suspect}" is not in this line-up. Suspects: ${loaded.file.suspects.join(', ')}.`);

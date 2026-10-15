@@ -14,13 +14,13 @@ export interface Io {
   err: (line: string) => void;
 }
 
-const USAGE = `whodunnit: a casebook of broken AI agents
+const USAGE = `casebook: ten broken AI agents, and the evidence of who did it
 
-  whodunnit list                         the ten cases, their areas and your progress
-  whodunnit open <case>                  the scene, witnesses, evidence locker and line-up
-  whodunnit accuse <case> --suspect <id> --cite ev-014,ev-022 --test "<cheapest test that would prove you wrong>"
-  whodunnit sweep <dir>                  run every detector over your own .jsonl traces
-  whodunnit detectors                    the detector library, with true and false positive counts
+  casebook list                         the ten cases, their areas and your progress
+  casebook open <case>                  the scene, witnesses, evidence locker and line-up
+  casebook accuse <case> --suspect <id> --cite ev-014,ev-022 --test "<cheapest test that would prove you wrong>"
+  casebook sweep <dir>                  run every detector over your own .jsonl traces
+  casebook detectors                    the detector library, with true and false positive counts
 
 <case> can be 3, 03 or 03-the-quiet-understudy.`;
 
@@ -93,7 +93,7 @@ function list(root: string, io: Io): number {
 }
 
 function open(root: string, reference: string | undefined, io: Io): number {
-  if (!reference) throw new AccusationError('Which case? For example: whodunnit open 3');
+  if (!reference) throw new AccusationError('Which case? For example: casebook open 3');
   const loaded = findCase(root, reference);
   const pool = loadSuspectPool(root);
   io.out(readFileSync(join(loaded.dir, 'README.md'), 'utf8').trimEnd());
@@ -103,14 +103,14 @@ function open(root: string, reference: string | undefined, io: Io): number {
   io.out('');
   io.out(
     loaded.tracePath
-      ? `Trace: ${relative(root, loaded.tracePath)} (${loaded.file.recording} recording). Accuse with:\n  whodunnit accuse ${loaded.file.number} --suspect <id> --cite ev-...,ev-... --test "..."`
+      ? `Trace: ${relative(root, loaded.tracePath)} (${loaded.file.recording} recording). Accuse with:\n  casebook accuse ${loaded.file.number} --suspect <id> --cite ev-...,ev-... --test "..."`
       : 'This case has no recording yet. It is scheduled for Phase 3b.',
   );
   return 0;
 }
 
 function accuse(root: string, reference: string | undefined, flags: Map<string, string>, io: Io): number {
-  if (!reference) throw new AccusationError('Which case? For example: whodunnit accuse 3 --suspect <id> --cite ev-014 --test "..."');
+  if (!reference) throw new AccusationError('Which case? For example: casebook accuse 3 --suspect <id> --cite ev-014 --test "..."');
   const loaded = findCase(root, reference);
   const accusation: Accusation = {
     suspect: (flags.get('suspect') ?? '').trim(),
@@ -171,7 +171,7 @@ function collectJsonl(dir: string): string[] {
 }
 
 function sweep(dir: string | undefined, asJson: boolean, io: Io): number {
-  if (!dir || !existsSync(dir) || !statSync(dir).isDirectory()) throw new AccusationError('Give a directory of .jsonl traces: whodunnit sweep ./traces');
+  if (!dir || !existsSync(dir) || !statSync(dir).isDirectory()) throw new AccusationError('Give a directory of .jsonl traces: casebook sweep ./traces');
   const files = collectJsonl(dir);
   if (files.length === 0) {
     io.err(`No .jsonl files under ${dir}.`);

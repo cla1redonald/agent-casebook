@@ -8,7 +8,7 @@ import { HARD_STOP_USD, Ledger, LedgeredClient, type LedgerEntry } from './ledge
 class Aborted extends Error {}
 
 function ledgerAt(lines: Partial<LedgerEntry>[] = []): { ledger: Ledger; path: string } {
-  const path = join(mkdtempSync(join(tmpdir(), 'whodunnit-ledger-')), 'spend.jsonl');
+  const path = join(mkdtempSync(join(tmpdir(), 'casebook-ledger-')), 'spend.jsonl');
   if (lines.length > 0) writeFileSync(path, lines.map((line) => JSON.stringify(line)).join('\n') + '\n');
   const ledger = new Ledger({
     path,

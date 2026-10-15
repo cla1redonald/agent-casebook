@@ -1,19 +1,19 @@
-# Trace format: whodunnit-trace/1
+# Trace format: casebook-trace/1
 
 A trace is a JSONL file: one JSON object per line. The first line is a header; every other line is one span, written when the span ends and ordered by when it started, so a session reads top to bottom.
 
-The schema is enforced in `src/trace/schema.ts`. `whodunnit sweep` accepts files without a header, so you can point it at your own traces as long as the event lines follow the shape below.
+The schema is enforced in `src/trace/schema.ts`. `casebook sweep` accepts files without a header, so you can point it at your own traces as long as the event lines follow the shape below.
 
 ## Convention version
 
-Attribute names follow the **OpenTelemetry semantic conventions, version 1.37.0**, for generative AI, HTTP and errors, where a convention exists. When this was written the GenAI conventions were marked **Development** upstream, which means names can still change. If they do, this format will pin a new version and bump to `whodunnit-trace/2`; it will not silently rename fields.
+Attribute names follow the **OpenTelemetry semantic conventions, version 1.37.0**, for generative AI, HTTP and errors, where a convention exists. When this was written the GenAI conventions were marked **Development** upstream, which means names can still change. If they do, this format will pin a new version and bump to `casebook-trace/2`; it will not silently rename fields.
 
 ## Header line
 
 | Field | Meaning |
 |---|---|
 | `kind` | Always `"header"`. |
-| `format` | `"whodunnit-trace/1"`. |
+| `format` | `"casebook-trace/1"`. |
 | `semconv` | `{ name, version, status }` of the conventions above. |
 | `case` | Case folder id, or `control/<name>` for the control corpus. |
 | `variant` | `incident`, `fixed` or `control`. |

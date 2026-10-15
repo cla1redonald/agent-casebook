@@ -1,5 +1,5 @@
 {
-  "name": "agent-whodunnit",
+  "name": "agent-casebook",
   "version": "0.1.0",
   "description": "A casebook of broken AI agents: recorded traces, six-suspect line-ups, sealed solutions and a detector per case.",
   "license": "MIT",
@@ -10,10 +10,10 @@
     "node": ">=22"
   },
   "bin": {
-    "whodunnit": "dist/src/cli/index.js"
+    "casebook": "dist/src/cli/index.js"
   },
   "scripts": {
-    "whodunnit": "node --import tsx src/cli/index.ts",
+    "casebook": "node --import tsx src/cli/index.ts",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",

@@ -22,12 +22,12 @@ const io = { out: (line: string) => output.push(line), err: (line: string) => er
 const run = async (...argv: string[]) => main(argv, io, root);
 
 beforeEach(() => {
-  root = mkdtempSync(join(tmpdir(), 'whodunnit-'));
+  root = mkdtempSync(join(tmpdir(), 'casebook-'));
   const real = repoRoot();
   cpSync(join(real, 'cases'), join(root, 'cases'), { recursive: true });
   cpSync(join(real, 'corpus'), join(root, 'corpus'), { recursive: true });
   cpSync(join(real, 'evals', 'labels'), join(root, 'evals', 'labels'), { recursive: true });
-  process.env.WHODUNNIT_STATE = join(root, 'state.json');
+  process.env.CASEBOOK_STATE = join(root, 'state.json');
 
   const dir = join(root, 'cases', FIXTURE_ID);
   cpSync(join(real, 'cases', '03-the-quiet-understudy'), dir, { recursive: true });
@@ -56,12 +56,12 @@ beforeEach(() => {
 
 afterEach(() => {
   rmSync(root, { recursive: true, force: true });
-  delete process.env.WHODUNNIT_STATE;
+  delete process.env.CASEBOOK_STATE;
 });
 
 const TEST = '--test=Restore the key and look at the source attribute';
 
-describe('whodunnit accuse', () => {
+describe('casebook accuse', () => {
   it('names a wrong suspect without scoring citations', async () => {
     expect(await run('accuse', '99', '--suspect', 'model-update', '--cite', 'ev-010', TEST)).toBe(1);
     expect(output.join('\n')).toMatch(/Not model-update/);
@@ -116,7 +116,7 @@ describe('whodunnit accuse', () => {
   });
 });
 
-describe('whodunnit list, open, sweep, detectors', () => {
+describe('casebook list, open, sweep, detectors', () => {
   it('lists the ten cases plus the fixture with their areas', async () => {
     expect(await run('list')).toBe(0);
     const text = output.join('\n');
@@ -170,7 +170,7 @@ describe('whodunnit list, open, sweep, detectors', () => {
 
   it('prints usage for no command and fails on an unknown one', async () => {
     expect(await run()).toBe(0);
-    expect(output.join('\n')).toMatch(/whodunnit sweep <dir>/);
+    expect(output.join('\n')).toMatch(/casebook sweep <dir>/);
     expect(await run('confess')).toBe(2);
   });
 });

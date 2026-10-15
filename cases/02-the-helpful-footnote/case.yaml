@@ -18,7 +18,7 @@ suspects:
   - the-user
 # Hashed so the file does not hand out a free elimination. Written by npm run seal.
 red_herring:
-  sha256: 0513687e3edf7534a49ae72de86aab8ee808adfe4186eb05eacbc4560073770a
+  sha256: 8ff018832782b59cbf07ad5ca89ac5801fab2b8c54476cc645c96da4e94bfb20
 verdict:
-  sha256: 7afce59baafa0129554ba48d366bb4ed8ea2aafd3ba899daea0d7889a938cf62
+  sha256: b7464cc32da60838f8e4e4b327c947eeced906617c63293c0198a987f5556d6f
 detector: d02-unconfirmed-send

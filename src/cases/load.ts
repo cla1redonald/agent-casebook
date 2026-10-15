@@ -67,6 +67,6 @@ export function findCase(root: string, reference: string): LoadedCase {
   const found = listCases(root).find(
     ({ file }) => file.id === wanted || String(file.number) === wanted.replace(/^0+/, '') || file.id.slice(3) === wanted,
   );
-  if (!found) throw new Error(`No case matches "${reference}". Run \`whodunnit list\`.`);
+  if (!found) throw new Error(`No case matches "${reference}". Run \`casebook list\`.`);
   return found;
 }
