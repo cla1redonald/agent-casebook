@@ -3,15 +3,15 @@
 Case 03. Ardsallow and Fennach Ferry Cooperative.
 Areas: Production and persistent agents; Evals, testing and observability.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. Session start times are scripted and the services and the fault are simulated by the rig on purpose; see the trace header. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
 
 ## The scene
 
-The Ardsallow and Fennach Ferry Cooperative runs two vessels on a single crossing, five sailings each way a day. Since June its website has carried a sailings desk: a chat assistant that answers questions about sailings, spaces and fares by calling the cooperative's availability service.
+The Ardsallow and Fennach Ferry Cooperative runs two vessels on a single crossing, five sailings each way a day. Since June its website has carried a sailings desk, a chat assistant that answers questions about sailings, spaces and fares by calling the cooperative's availability service.
 
 On 29 September the operations manager wrote to say the assistant had "stopped quoting live sailings about three weeks ago". Customers had turned up for the 07:10 from Ardsallow during the September refit, when that sailing was not running, and said the assistant had told them it was. One family with a campervan had asked about the same sailing and been told it was "scheduled to run". The cooperative's assistant dashboard had shown a tool success rate of 100% for the whole month.
 
-The cooperative asked two questions: what changed, and why nothing told them.
+The cooperative wanted to know what had changed, and why nothing had told them.
 
 ## Witnesses
 
@@ -47,4 +47,4 @@ Every span carries `trace_id` (one per chat session), `span_id` and `parent_span
 casebook accuse 3 --suspect <id> --cite ev-...,ev-... --test "<the cheapest test that would prove you wrong>"
 ```
 
-Cite the event ids that prove it. The solution unseals when the suspect is right and the citations cover the cracking evidence.
+Cite the event ids that prove it. The solution unseals when the suspect is right and your citations cover the evidence that cracks the case.

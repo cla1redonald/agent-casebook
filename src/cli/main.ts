@@ -104,7 +104,7 @@ function open(root: string, reference: string | undefined, io: Io): number {
   io.out(
     loaded.tracePath
       ? `Trace: ${relative(root, loaded.tracePath)} (${loaded.file.recording} recording). Accuse with:\n  casebook accuse ${loaded.file.number} --suspect <id> --cite ev-...,ev-... --test "..."`
-      : 'This case has no recording yet. It is scheduled for Phase 3b.',
+      : 'This case has no recording yet. The case README above says why.',
   );
   return 0;
 }
@@ -137,11 +137,11 @@ function accuse(root: string, reference: string | undefined, flags: Map<string, 
       io.out(`Not ${accusation.suspect}. The evidence does not support it. Citations are only scored against the right suspect.`);
       return 1;
     case 'red-herring':
-      io.out(`Not ${accusation.suspect}. That is the red herring: it happened, it is in the trace, and it did not cause this.`);
+      io.out(`Not ${accusation.suspect}. That is the red herring. It did happen and it is in the trace, but it did not cause this.`);
       return 1;
     case 'weak-citations':
       io.out(
-        `Right suspect. The citations do not yet carry it: precision ${judgement.precision?.toFixed(2)}, ` +
+        `Right suspect, but the citations do not carry it yet. They have precision ${judgement.precision?.toFixed(2)}, ` +
           `evidence groups covered ${judgement.groupsHit} of ${judgement.groupsTotal} (recall ${judgement.recall?.toFixed(2)}).`,
       );
       io.out(`To unseal the solution, cite at least ${MIN_GROUPS} groups with precision of ${MIN_PRECISION} or better.`);
