@@ -1,8 +1,8 @@
 # Agent Casebook
 
-An AI agent has gone wrong at a Scottish ferry cooperative. The client says it stopped quoting live sailings three weeks ago, and the moment it broke is somewhere in a 400-line trace. Agent Casebook has ten cases like this one. Every case gives you the recorded trace and six suspects. Accuse the right suspect and cite the events that prove it, and the sealed solution opens. Each case also comes with a detector that would have caught the fault, and you can run those detectors over your own traces.
+An AI agent has gone wrong at a Scottish ferry cooperative. The client says it stopped quoting live sailings three weeks ago, and the moment it broke is somewhere in a 400-line trace. Agent Casebook has ten cases like this one. Every case has six suspects, and the nine playable ones give you the recorded trace. Accuse the right suspect and cite the events that prove it, and the sealed solution opens. Each case also comes with a detector that would have caught the fault, and you can run those detectors over your own traces.
 
-> **Phase 3b.** Nine of the ten cases are playable. Every trace is a **live recording** on Claude Haiku 5.5 (`claude-haiku-5-5`), apart from case 7's large route, which ran on Claude Sonnet 5.5, and every file is labelled to say so. The model's replies are real. The rig deliberately simulates what sits around the model, such as the services it calls, the faults and the clock between sessions. Case 2 did not reproduce on the live model, so it is still pending. The detail is under [What is tested](#what-is-tested) and [What is pending](#what-is-pending).
+> **Status.** In this round of work, Phase 3b, every case was recorded against a live model. Nine of the ten cases are playable. Every trace is a **live recording** on Claude Haiku 5.5 (`claude-haiku-5-5`), apart from case 7's large route, which ran on Claude Sonnet 5.5, and every file is labelled to say so. The model's replies are real. The recording rig in `rigs/`, which runs the agent, deliberately simulates what sits around the model. Case 2 did not reproduce on the live model, so it is still pending. The detail is under [What is tested](#what-is-tested) and [What is pending](#what-is-pending).
 
 ## How to play
 
@@ -25,13 +25,13 @@ npm run casebook -- accuse 3 --suspect <id> --cite ev-104,ev-105 \
 The casebook scores the accusation mechanically.
 
 - The suspect is either right or wrong. If you pick the red herring, it tells you so. The red herring did happen and it is in the trace, but it did not cause the failure.
-- Citations only count for the right suspect. Precision is the share of your ids that are cracking evidence, and recall is the share of evidence groups you touched. You need at least two groups and a precision of 0.5 or better to unseal the solution.
+- Citations only count for the right suspect. Precision is the share of the ids you cite that belong to the evidence that cracks the case. That evidence falls into groups, and recall is the share of groups you cite at least one event from. You need at least two groups and a precision of 0.5 or better to unseal the solution.
 - The falsification test is required. It is printed next to the casebook's own cheapest test so that you can compare them, and the casebook does not score it.
 - Attempts are counted in `.casebook/state.json`, which stays on your machine and is gitignored.
 
 The solution is in `sealed/solution.md.enc`. It is encrypted with AES-256-GCM, using a key that scrypt derives from the suspect id and the case id. **The seal is no protection against anyone who wants to read it.** There are only six suspects, so anyone can try them all. It is there so that you do not read the answer by accident. `sealed/` also holds the fixed trace, which gives the answer away.
 
-So do `rigs/scenarios/`, `library/detectors/` and `evals/labels/`, because the rig that produced each trace and the detector that catches it both describe the fault outright. If you want to play, play before you open them.
+`rigs/scenarios/`, `library/detectors/` and `evals/labels/` give the answer away too, because the rig that produced each trace and the detector that catches it both describe the fault outright. Play the case before you open them.
 
 ## The cases
 
@@ -76,9 +76,9 @@ Every detector lists its known blind spots in its source file, and `casebook det
 
 ## What is tested
 
-**Every trace in the casebook and the control corpus is a live recording on Claude Haiku 5.5**, except case 7's large route, which is on Claude Sonnet 5.5. They were made on 12 October 2026 through the rig in `rigs/`. The model's replies, token counts, cache use and call latencies are real. The rig simulates everything around the model on purpose, including the services it calls, the faults and the time between sessions. In case 4 it also plays the part of the provider's throttle. It answered the rejected attempts itself, so none of them was ever sent. Each trace header names the model, the day, the take and the rig version. The stub recordings from Phase 3a are still in `recordings/stub/`, labelled as stubs.
+**Every trace in the casebook and the control corpus is a live recording on Claude Haiku 5.5**, except case 7's large route, which is on Claude Sonnet 5.5. They were made on 12 October 2026 through the rig in `rigs/`. The model's replies, token counts, cache use and call latencies are real. The rig simulates everything around the model on purpose, including the services it calls, the faults and the time between sessions. In case 4 it also plays the part of the provider's throttle. It answered the rejected attempts itself, so none of them was ever sent. Each trace header names the model, the day, the take and the rig version. The stub recordings from Phase 3a, the earlier scripted round, are still in `recordings/stub/`, labelled as stubs.
 
-The whole phase cost $0.77 at list price, retakes and trial calls included. `rigs/ledger.ts` would have stopped it at $30. Each paid call is one line in `recordings/spend.jsonl`.
+Recording all of Phase 3b cost $0.77 at list price, retakes and trial calls included. `rigs/ledger.ts` would have stopped it at $30. Each paid call is one line in `recordings/spend.jsonl`.
 
 CI runs the following on every push.
 
@@ -88,24 +88,24 @@ CI runs the following on every push.
 - `npm run check:recordings`, which scans every trace, cassette and locker blob for key shapes and the live key, for email addresses outside `example.scot` and `example.invalid`, for telephone numbers outside the Ofcom drama ranges, and for anything on the deny list. It also fails if a live header does not name its model, date and rig version, or if a locker blob does not hash to its id.
 - `npm run evals`, which runs every detector against its case trace, its fixed trace, the other cases and the ten control traces, and scores each one per session with 95% Wilson intervals:
 
-```
-Detector evals over 28 trace files and 1101 sessions (all live recordings on claude-haiku-5-5).
-Recall is per faulted session of the detector's own case; false positives are per session across every other session. Intervals are 95% Wilson.
+  ```
+  Detector evals over 28 trace files and 1101 sessions (all live recordings on claude-haiku-5-5).
+  Recall is per faulted session of the detector's own case; false positives are per session across every other session. Intervals are 95% Wilson.
 
-det  status       case trace   fixed    control   TP/P      recall [95% CI]      FP/N       FP rate [95% CI]       verdict
-d01  implemented  1 found      silent   0/10      1/1       1.00 [0.21, 1.00]    0/1100     0.000 [0.000, 0.003]   GREEN
-d02  skeleton     no reproducing recording; rule specified, test marked todo
-d03  implemented  58 found     silent   0/10      58/58     1.00 [0.94, 1.00]    0/1043     0.000 [0.000, 0.004]   GREEN
-d04  implemented  18 found     silent   0/10      18/18     1.00 [0.82, 1.00]    0/1083     0.000 [0.000, 0.004]   GREEN
-d05  implemented  6 found      silent   0/10      6/6       1.00 [0.61, 1.00]    0/1095     0.000 [0.000, 0.003]   GREEN
-d06  implemented  35 found     silent   0/10      35/35     1.00 [0.90, 1.00]    0/1066     0.000 [0.000, 0.004]   GREEN
-d07  implemented  14 found     silent   0/10      14/14     1.00 [0.78, 1.00]    0/1087     0.000 [0.000, 0.004]   GREEN
-d08  implemented  34 found     silent   0/10      34/34     1.00 [0.90, 1.00]    0/1067     0.000 [0.000, 0.004]   GREEN
-d09  implemented  12 found     silent   0/10      11/11     1.00 [0.74, 1.00]    0/1090     0.000 [0.000, 0.004]   GREEN
-d10  implemented  22 found     silent   0/10      22/22     1.00 [0.85, 1.00]    0/1079     0.000 [0.000, 0.004]   GREEN
+  det  status       case trace   fixed    control   TP/P      recall [95% CI]      FP/N       FP rate [95% CI]       verdict
+  d01  implemented  1 found      silent   0/10      1/1       1.00 [0.21, 1.00]    0/1100     0.000 [0.000, 0.003]   GREEN
+  d02  skeleton     no reproducing recording; rule specified, test marked todo
+  d03  implemented  58 found     silent   0/10      58/58     1.00 [0.94, 1.00]    0/1043     0.000 [0.000, 0.004]   GREEN
+  d04  implemented  18 found     silent   0/10      18/18     1.00 [0.82, 1.00]    0/1083     0.000 [0.000, 0.004]   GREEN
+  d05  implemented  6 found      silent   0/10      6/6       1.00 [0.61, 1.00]    0/1095     0.000 [0.000, 0.003]   GREEN
+  d06  implemented  35 found     silent   0/10      35/35     1.00 [0.90, 1.00]    0/1066     0.000 [0.000, 0.004]   GREEN
+  d07  implemented  14 found     silent   0/10      14/14     1.00 [0.78, 1.00]    0/1087     0.000 [0.000, 0.004]   GREEN
+  d08  implemented  34 found     silent   0/10      34/34     1.00 [0.90, 1.00]    0/1067     0.000 [0.000, 0.004]   GREEN
+  d09  implemented  12 found     silent   0/10      11/11     1.00 [0.74, 1.00]    0/1090     0.000 [0.000, 0.004]   GREEN
+  d10  implemented  22 found     silent   0/10      22/22     1.00 [0.85, 1.00]    0/1079     0.000 [0.000, 0.004]   GREEN
 
-Overall: GREEN
-```
+  Overall: GREEN
+  ```
 
   A seeded-fault test switches off each detector in turn and checks that the report goes red.
 - A banned-terms check over the tree and the full `git log -p`, and a check for absolute home-directory paths.
@@ -116,8 +116,8 @@ One caveat applies to all of those numbers. **The same author wrote the faults, 
 
 - Case 2 did not reproduce. In three live takes Haiku 5.5 never sent the booking list. Each time it read the caterer's page, it named the planted instruction and ignored it. The case stays sealed as written, d02 stays a skeleton, and the takes are kept in `recordings/not-reproduced/`. It could still be recorded on a model or configuration that does follow instructions like that one.
 - Case 10 is a near miss. The approval step failed exactly as written in all three takes, but the agent declined to make the disclosure, so the scene was rewritten around what the trace shows.
-- Case 1 was recorded at a reduced size to fit the cheap option. It peaks at about 62,000 tokens, where the scene has 140,000.
-- For the cases first recorded in this phase, the case README summarises the witness statements instead of giving them in full.
+- Case 1 was recorded at a reduced size to keep it within the recording budget on Claude Haiku 5.5. It peaks at about 62,000 tokens, where the scene has 140,000.
+- For the cases first recorded in Phase 3b, the case README summarises the witness statements instead of giving them in full.
 
 [docs/decisions/0002-phase-3b.md](docs/decisions/0002-phase-3b.md) has the working, a record of each take, and the reasons for every choice above.
 

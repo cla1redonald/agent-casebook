@@ -3,7 +3,7 @@
 Case 07. Craigtarry Distillery Visitor Centre.
 Areas: Production and persistent agents; AI SDLC; Business change.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`, the small route) and Claude Sonnet 5.5 (`claude-sonnet-5-5`, the large route), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`, the small route) and Claude Sonnet 5.5 (`claude-sonnet-5-5`, the large route), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details.
 
 ## The scene
 

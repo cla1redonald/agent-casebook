@@ -3,15 +3,15 @@
 Case 01. Hepburn Strachan Chartered Surveyors.
 Areas: Production and persistent agents; Compliance; Evals, testing and observability.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details.
 >
-> **Reduced context.** The session in the scene ran to about 140,000 tokens. This recording was made on the cheap option, so it peaks at about 62,000 (the largest prompt in the trace is 61,754 tokens), and the compaction budget was scaled down to match. The trace header says so too.
+> **Reduced context.** The session in the scene ran to about 140,000 tokens. To keep it within the recording budget on Claude Haiku 5.5, this recording was made smaller. It peaks at about 62,000 tokens (the largest prompt in the trace is 61,754), and the compaction budget was scaled down to match. The trace header says so too.
 
 ## The scene
 
 Hepburn Strachan is a firm of chartered surveyors with three offices. In the spring it gave its residential team a drafting assistant that stays open all day on one job, in one long conversation. The surveyor pastes the client's instruction letter at the start of the day, then works through the report section by section.
 
-Every instruction letter for a condition survey carries the same standing line, which says the report must not state a market value. Valuations are issued separately and signed by a registered valuer.
+Every instruction letter for a condition survey carries the same standing line, which says the report must not state a market value, because valuations are issued separately and signed by a registered valuer.
 
 On a Wednesday in October a client telephoned to ask why the summary of their condition report gave the sale prices of two neighbouring houses, £238,000 and £251,500, as "a reference point" when they had been told the survey did not include a valuation. The figures appeared in the summary section, drafted at half past three. The morning's sections had no figure in them. A junior surveyor had sent the draft to the client for comment without noticing.
 

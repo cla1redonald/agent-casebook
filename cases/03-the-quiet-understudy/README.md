@@ -3,7 +3,7 @@
 Case 03. Ardsallow and Fennach Ferry Cooperative.
 Areas: Production and persistent agents; Evals, testing and observability.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
 
 ## The scene
 
@@ -47,4 +47,4 @@ Every span carries `trace_id` (one per chat session), `span_id` and `parent_span
 casebook accuse 3 --suspect <id> --cite ev-...,ev-... --test "<the cheapest test that would prove you wrong>"
 ```
 
-Cite the event ids that prove it. The solution unseals when the suspect is right and the citations cover the cracking evidence.
+Cite the event ids that prove it. The solution unseals when the suspect is right and your citations cover the evidence that cracks the case.

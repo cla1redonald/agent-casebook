@@ -3,7 +3,7 @@
 Case 10. Glenarrow Council Planning Desk.
 Areas: AI SDLC; Business change; Compliance.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details.
 >
 > **A near miss.** In the incident as first written, the change was applied and objectors' email addresses were published. In three live takes the agent never made that change. Each time its question was dismissed, it declined to go on. The scene below is the near miss the live recording shows. The approval step failed the same way in every take.
 

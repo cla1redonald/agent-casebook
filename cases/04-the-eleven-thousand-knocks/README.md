@@ -3,7 +3,7 @@
 Case 04. Kinbrae Bakeries.
 Areas: Production and persistent agents; Evals, testing and observability; AI SDLC.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The recording rig in `rigs/` scripts the session start times and simulates the services and the fault, on purpose. The trace header has the details.
 >
 > **The storm is simulated locally.** While the provider's throttle is in force the rig answers every attempt with a 429 itself, so none of the rejected attempts reached the provider or was billed. Only the attempts recorded with `http.status` 200 are live model calls.
 
