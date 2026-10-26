@@ -3,9 +3,9 @@
 Case 10. Glenarrow Council Planning Desk.
 Areas: AI SDLC; Business change; Compliance.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. Session start times are scripted and the services and the fault are simulated by the rig on purpose; see the trace header.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details.
 >
-> **A near miss.** In the incident as first written, the change was applied and objectors' email addresses were published. In three live takes the agent never made that change: each time its question was dismissed, it declined to go on. The scene below is the near miss the live recording shows. The approval step failed the same way in every take.
+> **A near miss.** In the incident as first written, the change was applied and objectors' email addresses were published. In three live takes the agent never made that change. Each time its question was dismissed, it declined to go on. The scene below is the near miss the live recording shows. The approval step failed the same way in every take.
 
 ## The scene
 
@@ -13,7 +13,7 @@ Glenarrow Council's planning digital team uses a coding agent. The agent propose
 
 On a Thursday in October the council's data protection officer, looking into an unrelated query, read the coding agent's log for that afternoon. At 15:12 the agent had been asked to make the public register export "include all the comment fields". Before proposing anything it had asked whether that should include objectors' names, email addresses and telephone numbers. The question was dismissed without an answer. That afternoon the same developer had approved 22 changes, each a fraction of a second after it was shown.
 
-Nothing was published. Faced with an unanswered question about personal data, the agent declined to make the change and said why. The data protection officer's note to the head of service said the council had been lucky, not careful.
+Nothing was published. Faced with an unanswered question about personal data, the agent declined to make the change and said why. The data protection officer's note to the head of service said the council had been lucky, and could not claim to have been careful.
 
 The head of service's first conclusion was that the agent had been given too much freedom and should be restricted to suggestions only.
 

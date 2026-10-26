@@ -3,7 +3,7 @@
 Case 06. Glenarrow Council Planning Desk.
 Areas: Evals, testing and observability; AI SDLC.
 
-> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. Session start times are scripted and the services and the fault are simulated by the rig on purpose; see the trace header. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
+> Recording: **live**, on Claude Haiku 5.5 (`claude-haiku-5-5`), 12 October 2026. Every model reply is the live model's. The rig scripts the session start times and simulates the services and the fault on purpose. The trace header has the details. The Phase 3a stub recording is kept for reference in `recordings/stub/`.
 
 ## The scene
 
@@ -29,9 +29,9 @@ The council asked how a green eval and a failing service could both be true.
 | `trace.jsonl` | 369 events from 14 to 20 September 2026: the nightly eval runs and residents' requests. The first line is the header. |
 | `witnesses/` | Four statements, including the eval report and the web team's ticket. |
 
-Every span carries `trace_id` (one per request or eval case), `span_id` and `parent_span_id`. Spans name their environment in `deployment.environment.name`. Request bodies are not stored; their size is, in `http.request.body.size`, and header names (not values) are recorded where the code that saw them recorded them. Times are milliseconds from the epoch in the header, which is midnight British Summer Time on 14 September.
+Every span carries `trace_id` (one per request or eval case), `span_id` and `parent_span_id`. Spans name their environment in `deployment.environment.name`. Request bodies are not stored, but their size is, in `http.request.body.size`. Header names (not their values) are recorded wherever the code that saw them recorded them. Times are milliseconds from the epoch in the header, which is midnight British Summer Time on 14 September.
 
-Outputs longer than 400 characters, mostly the assistant's own replies, are in `locker/` by SHA-256; `locker/INDEX.md` lists which events reference which blob.
+Outputs longer than 400 characters, mostly the assistant's own replies, are filed in `locker/` by SHA-256. `locker/INDEX.md` lists which events reference which blob.
 
 ## The line-up
 
